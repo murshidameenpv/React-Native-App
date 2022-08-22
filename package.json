@@ -1,4 +1,5 @@
 {
+  "homepage": "https://murshidameenpv.github.io/reactproject",
   "name": "TestProject",
   "version": "0.0.1",
   "private": true,
@@ -6,6 +7,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "jest",
     "lint": "eslint ."
   },
