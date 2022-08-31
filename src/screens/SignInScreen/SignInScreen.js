@@ -10,28 +10,23 @@ import React, {useState} from 'react';
 import Logo from '../../../assets/images/Logo_1.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
+import SocialSigInButtons from '../../components/SocialSigInButtons';
+import {useNavigation} from '@react-navigation/native';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const {height} = useWindowDimensions();
+ 
+  const navigation = useNavigation();
   const onSignInPressed = () => {
-    console.warn('Sign in!');
+    navigation.navigate('HomeScreen');
   };
   const onForgottPasswordPressed = () => {
-    console.warn('onForgotPasswordPressed');
-  };
-  const onSignInFacebook = () => {
-    console.warn('onSignInFacebook');
-  };
-  const onSignInGoogle = () => {
-    console.warn('onSignInGoogle');
-  };
-  const onSignInApple = () => {
-    console.warn('onSignInApple');
+    navigation.navigate('ForgottPassword');
   };
   const onSignUpPress = () => {
-    console.warn('OnSignUpPress');
+    navigation.navigate('SignUp');
   };
   return (
     <ScrollView showsHorizontalScrollIndicator={false}>
@@ -58,24 +53,7 @@ const SignInScreen = () => {
           onPress={onForgottPasswordPressed}
           type="TERTIARY"
         />
-        <CustomButton
-          text="Sign In with Facebook"
-          onPress={onSignInFacebook}
-          bgColor="#E7EAF4"
-          fgColor="#4765A9"
-        />
-        <CustomButton
-          text="Sign In with Google"
-          onPress={onSignInGoogle}
-          bgColor="#FAE9EA"
-          fgColor={'#DD4D44'}
-        />
-        <CustomButton
-          text="Sign In with Apple"
-          onPress={onSignInApple}
-          bgColor="#e3e3e3"
-          fgColor="#363636"
-        />
+        <SocialSigInButtons />
         <CustomButton
           text="Don't have an account? Create One"
           onPress={onSignUpPress}
